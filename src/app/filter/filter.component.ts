@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 import { DataService } from "../data.service";
 
 @Component({
@@ -8,6 +8,9 @@ import { DataService } from "../data.service";
 })
 export class FilterComponent implements OnInit {
   filters: [boolean, string][];
+  @Output() filtersApplied: EventEmitter<
+    [boolean, string][]
+  > = new EventEmitter();
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
@@ -20,8 +23,6 @@ export class FilterComponent implements OnInit {
   }
 
   applyFilters() {
-    this.filters.forEach((x) => {
-      if (x[0]) console.log(x);
-    });
+    this.filtersApplied.emit(this.filters.filter((x) => x[0]));
   }
 }
