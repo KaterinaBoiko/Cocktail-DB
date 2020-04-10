@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+}
+
+app-filter {
+  /* flex: 0 0 auto; */
+}
+
+.content {
+  flex: 3;
+  background-color: rgb(171, 130, 238);
+}

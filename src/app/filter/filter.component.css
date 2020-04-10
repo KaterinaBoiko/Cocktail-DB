@@ -1,0 +1,39 @@
+:host {
+  padding: 20px 30px;
+}
+
+.checkbox {
+  margin: 15px;
+  color: #818181;
+}
+
+::ng-deep .mat-checkbox-frame {
+  border: 1.2px solid !important;
+  border-radius: 4px !important;
+  transform: scale(1.4);
+  width: 15px !important;
+  height: 17px !important;
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+.mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: transparent !important;
+}
+
+::ng-deep .mat-checkbox-checkmark-path {
+  stroke: #818181 !important;
+  stroke-width: 4px !important;
+}
+
+button {
+  width: 180px;
+  height: 39px;
+  color: white;
+  background: #4E4E4E;
+  border-radius: 10px;
+  border: 0;
+  margin-top: 10px;
+
+  font-weight: bold;
+  font-size: 16px;
+}

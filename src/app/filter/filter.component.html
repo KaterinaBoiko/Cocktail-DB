@@ -1,0 +1,4 @@
+<section class="checkbox" *ngFor="let filter of filters">
+    <mat-checkbox [checked]="filter[0]" [(ngModel)]="filter[0]">{{filter[1]}}</mat-checkbox>
+</section>
+<button (click)="applyFilters()">APPLY</button>
