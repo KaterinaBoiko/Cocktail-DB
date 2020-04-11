@@ -1,5 +1,30 @@
 <app-header></app-header>
 <div class="main">
     <app-filter (filtersApplied)="filterAppliedHandler($event)"></app-filter>
-    <div class="content">fedsd</div>
+    <div class="content">
+        <div class="wait" [hidden]="cocktails">
+            <i class="fas fa-spinner fa-pulse"></i>
+            <span>Loading...</span>
+        </div>
+        <div class="wrapper" *ngIf="cocktails">
+            <p class="category">{{cocktails.category}}</p>
+            <div class="gallery">
+                <div class="drink" *ngFor="let drink of cocktails.drinks">
+                    <img src="{{drink.strDrinkThumb}}" alt="">
+                    <p>{{drink.strDrink}}</p>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <span href="javascript:;" (click)="prevPage()" [class]="page == 0 ? 'disabled' : ''"><i
+                        class="fas fa-angle-left"></i> Previous page</span>
+                <span href="javascript:;" *ngFor="let item of filters; let i = index" class="page"
+                    (click)="changePage(i)">
+                    {{ i + 1 }} </span>
+                <span href="javascript:;" (click)="nextPage()"
+                    [class]="page == filters.length - 1 ? 'disabled' : ''">Next
+                    page <i class="fas fa-angle-right"></i></span>
+            </div>
+        </div>
+    </div>
 </div>

@@ -8,18 +8,39 @@ import { DataService } from "./data.service";
 })
 export class AppComponent implements OnInit {
   title = "cocktail-db";
-  cocktails: any;
+  filters: string[];
+  cocktails: { category: string; drinks: [] };
+  page: number = 0;
 
   constructor(private dataService: DataService) {}
 
-  ngOnInit(): void {
-    this.dataService.getCocktails("Soft Drink / Soda").subscribe(
-      (data) => console.log(data),
+  ngOnInit(): void {}
+
+  filterAppliedHandler(filters: string[]) {
+    this.filters = filters;
+    if (filters.length > 0) this.loadCocktails(filters[0]);
+  }
+
+  loadCocktails(filter: string) {
+    this.dataService.getCocktails(filter).subscribe(
+      (data: any) => {
+        this.cocktails = { category: filter, drinks: data.drinks };
+      },
       (error) => console.log(error)
     );
   }
 
-  filterAppliedHandler(filters: [boolean, string][]) {
-    console.log(filters);
+  changePage(toPage: number): void {
+    window.scroll(0, 0);
+    this.page = toPage;
+    this.loadCocktails(this.filters[this.page]);
+  }
+
+  prevPage(): void {
+    if (this.page != 0) this.changePage(--this.page);
+  }
+
+  nextPage(): void {
+    if (this.page != this.filters.length - 1) this.changePage(++this.page);
   }
 }

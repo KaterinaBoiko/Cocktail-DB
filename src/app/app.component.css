@@ -1,12 +1,71 @@
 .main {
   display: flex;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 app-filter {
-  /* flex: 0 0 auto; */
+  border-right: 1px solid #d0d0d0;
 }
 
 .content {
-  flex: 3;
-  background-color: rgb(171, 130, 238);
+  flex: 2;
+}
+
+.wait {
+  margin: 10px;
+}
+
+.wait>span {
+  font-size: 18px;
+  padding-left: 10px;
+}
+
+.wrapper {
+  width: 92%;
+  margin: 30px auto;
+}
+
+.category {
+  font-size: 24px;
+  line-height: 28px;
+  color: #818181;
+  padding: 7px 0;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.drink {
+  text-align: center;
+  margin: 15px 0;
+}
+
+img {
+  width: 150px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.pagination {
+  font-size: 18px;
+  text-align: center;
+  margin: 30px;
+}
+
+.pagination span {
+  color: black;
+  margin: 2px 7px;
+  padding-left: 8px;
+  cursor: pointer;
+}
+
+.pagination i {
+  margin: 7px;
+}
+
+.pagination .disabled {
+  color: #7a7a7a;
+  cursor: default;
 }
