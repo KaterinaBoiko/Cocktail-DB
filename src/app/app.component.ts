@@ -10,20 +10,21 @@ export class AppComponent implements OnInit {
   title = "cocktail-db";
   filters: string[];
   cocktails: { category: string; drinks: [] };
-  page: number = 0;
+  page: number;
 
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {}
 
   filterAppliedHandler(filters: string[]) {
+    this.page = 0;
     this.filters = filters;
     if (filters.length > 0) this.loadCocktails(filters[0]);
   }
 
   loadCocktails(filter: string) {
     this.dataService.getCocktails(filter).subscribe(
-      (data: any) => {
+      (data) => {
         this.cocktails = { category: filter, drinks: data.drinks };
       },
       (error) => console.log(error)

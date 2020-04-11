@@ -14,7 +14,7 @@ export class DataService {
     );
   }
 
-  getCocktails(cocktail: string) {
+  getCocktails(cocktail: string): Observable<any> {
     return this.http.get(
       "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=" + cocktail
     );

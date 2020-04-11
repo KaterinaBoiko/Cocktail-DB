@@ -21,11 +21,13 @@ app-filter {
 }
 
 .wrapper {
-  width: 92%;
+  width: 95%;
   margin: 30px auto;
 }
 
 .category {
+  width: 93%;
+  margin: 10px auto;
   font-size: 24px;
   line-height: 28px;
   color: #818181;
